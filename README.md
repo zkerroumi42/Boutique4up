@@ -1,1 +1,1 @@
-# Boutique4up
+# Boutique4up :create market managment system for creating products and services for customers
