@@ -1,0 +1,62 @@
+SET FOREIGN_KEY_CHECKS = 0;
+DROP TABLE IF EXISTS `users`;
+DROP TABLE IF EXISTS `clients`;
+DROP TABLE IF EXISTS `produits`;
+DROP TABLE IF EXISTS `categories`;
+DROP TABLE IF EXISTS `fornisseurs`;
+DROP TABLE IF EXISTS `transactions`;
+SET FOREIGN_KEY_CHECKS = 1;
+
+CREATE TABLE `users` (
+    `id` INTEGER NOT NULL,
+    `nom` VARCHAR(50) NOT NULL,
+    `prenom` VARCHAR(50) NOT NULL,
+    `password` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `clients` (
+    `id` INTEGER NOT NULL,
+    `nom` VARCHAR(50) NOT NULL,
+    `prenom` VARCHAR(50) NOT NULL,
+    `adress` VARCHAR(50) NOT NULL,
+    `num_tele` VARCHAR(50) NOT NULL,
+    `email` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `produits` (
+    `id` INTEGER NOT NULL,
+    `nom` VARCHAR(50) NOT NULL,
+    `description` TEXT NOT NULL,
+    `prix` DECIMAL NOT NULL,
+    `id_cat` INTEGER NOT NULL,
+    `marque` VARCHAR(50) NOT NULL,
+    `id_forn` INTEGER NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `categories` (
+    `id` INTEGER NOT NULL,
+    `nom` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `fornisseurs` (
+    `id` INTEGER NOT NULL,
+    `nom` VARCHAR(50) NOT NULL,
+    `prenom` VARCHAR(50) NOT NULL,
+    `adress` TEXT NOT NULL,
+    `num_tele` VARCHAR(50) NOT NULL,
+    PRIMARY KEY (`id`)
+);
+
+CREATE TABLE `transactions` (
+    `id` INTEGER NOT NULL,
+    `id_clt` INTEGER NOT NULL,
+    `id_pro` INTEGER NOT NULL,
+    `date_heure_trans` DATETIME NOT NULL,
+    `quantité` INTEGER NOT NULL,
+    `montant_total` DOUBLE NOT NULL,
+    PRIMARY KEY (`id`)
+);
